@@ -1,3 +1,5 @@
+"""This module provides functions for logging and saving data to SQL."""
+
 import logging
 import pandas as pd
 import sqlite3
@@ -7,7 +9,7 @@ import pyodbc
 
 # Function to configurate logging 
 def set_up_logging():
-    logging.basicConfig(filename='dev-test.log', 
+    logging.basicConfig(filename='test.log', 
                         level=logging.INFO, 
                         filemode='a', 
                         format='[%(asctime)s][%(name)s] - %(levelname)s - %(message)s',
@@ -17,9 +19,8 @@ logger = logging.getLogger(__name__)
 
 
 # Function to save scraped and cleaned data to SQL database "WeeklyOffers"
-    
 def save_to_sql(df: pd.DataFrame, db_name='WeeklyOffers', table_name='offers', server='MSI') -> None:
-    """Saves the cleaned DataFrame to a MSSQL database"""
+    """Saves the cleaned DataFrame to a MSSQL database."""
     try:
         engine = create_engine("mssql+pyodbc://MSI/WeeklyOffers?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes")
         logger.info("Connection to database was successful.")
