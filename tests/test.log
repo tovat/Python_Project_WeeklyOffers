@@ -1,0 +1,58 @@
+[2024-09-24 13:00:22][scraper] - INFO - A scraper object was instantiated with URL: {'https://ereklamblad.se/Coop/erbjudanden'}
+[2024-09-24 13:00:28][scraper] - INFO - A scraper object was instantiated with URL: {'https://ereklamblad.se/Coop/erbjudanden'}
+[2024-09-24 13:00:30][scraper] - INFO - WebDriver set up successfully.
+[2024-09-24 13:00:31][scraper] - INFO - Page successfully loaded.
+[2024-09-24 13:00:50][scraper] - INFO - The content of the page was successfully gathered.
+[2024-09-24 13:00:50][scraper] - INFO - The OfferList class was successfully parsed.
+[2024-09-24 13:17:53][scraper] - INFO - A scraper object was instantiated with URL: {'https://ereklamblad.se/Coop/erbjudanden'}
+[2024-09-24 13:17:59][scraper] - INFO - WebDriver set up successfully.
+[2024-09-24 13:18:00][scraper] - INFO - Page successfully loaded.
+[2024-09-24 13:18:21][scraper] - INFO - The content of the page was successfully gathered.
+[2024-09-24 13:18:21][scraper] - INFO - The OfferList class was successfully parsed.
+[2024-09-24 13:25:48][scraper] - INFO - A scraper object was instantiated with URL: {'https://ereklamblad.se/Coop/erbjudanden'}
+[2024-09-24 13:25:53][scraper] - INFO - WebDriver set up successfully.
+[2024-09-24 13:25:54][scraper] - INFO - Page successfully loaded.
+[2024-09-24 13:26:16][scraper] - INFO - The content of the page was successfully gathered.
+[2024-09-24 13:26:16][scraper] - INFO - The OfferList class was successfully parsed.
+[2024-09-24 13:29:58][cleaner] - INFO - DataCleaner initialized with 102 rows of data.
+[2024-09-24 13:30:04][cleaner] - INFO - DataCleaner initialized with 102 rows of data.
+[2024-09-24 13:31:08][cleaner] - INFO - DataCleaner initialized with 102 rows of data.
+[2024-09-24 13:31:08][cleaner] - INFO - Data successfully converted to a pandas DataFrame.
+[2024-09-24 13:31:08][cleaner] - INFO - Duplicates removed, 16 rows were dropped.
+[2024-09-24 13:31:08][cleaner] - INFO - Price column cleaned and converted to numeric successfully.
+[2024-09-24 13:31:08][cleaner] - INFO - Details column modified and cleaned successfully.
+[2024-09-24 13:31:08][cleaner] - INFO - Date columns converted and cleaned successfully.
+[2024-09-24 13:31:08][cleaner] - INFO - Data cleaned successfully.
+[2024-09-24 13:42:26][cleaner] - INFO - DataCleaner initialized with 102 rows of data.
+[2024-09-24 13:42:26][cleaner] - INFO - Data successfully converted to a pandas DataFrame.
+[2024-09-24 13:42:26][cleaner] - INFO - Duplicates removed, 16 rows were dropped.
+[2024-09-24 13:42:26][cleaner] - INFO - Price column cleaned and converted to numeric successfully.
+[2024-09-24 13:42:26][cleaner] - INFO - Details column modified and cleaned successfully.
+[2024-09-24 13:42:26][cleaner] - INFO - Date columns converted and cleaned successfully.
+[2024-09-24 13:42:26][cleaner] - INFO - Data cleaned successfully.
+[2024-09-24 13:49:14][funcs] - INFO - Connection to database was successful.
+[2024-09-24 13:49:14][funcs] - ERROR - connect() got an unexpected keyword argument 'trusted_connection': Failed to save data to database.
+[2024-09-24 13:50:00][funcs] - INFO - Connection to database was successful.
+[2024-09-24 13:50:00][funcs] - ERROR - connect() got an unexpected keyword argument 'trusted_connection': Failed to save data to database.
+[2024-09-24 13:50:16][funcs] - INFO - A scraper object was instantiated with URL: {'https://ereklamblad.se/Coop/erbjudanden'}
+[2024-09-24 13:50:18][funcs] - INFO - WebDriver set up successfully.
+[2024-09-24 13:50:18][funcs] - INFO - Page successfully loaded.
+[2024-09-24 13:50:40][funcs] - INFO - The content of the page was successfully gathered.
+[2024-09-24 13:50:40][funcs] - INFO - The OfferList class was successfully parsed.
+[2024-09-24 13:50:51][funcs] - INFO - DataCleaner initialized with 102 rows of data.
+[2024-09-24 13:50:51][funcs] - INFO - Data successfully converted to a pandas DataFrame.
+[2024-09-24 13:50:51][funcs] - INFO - Duplicates removed, 13 rows were dropped.
+[2024-09-24 13:50:51][funcs] - INFO - Price column cleaned and converted to numeric successfully.
+[2024-09-24 13:50:51][funcs] - INFO - Details column modified and cleaned successfully.
+[2024-09-24 13:50:51][funcs] - INFO - Date columns converted and cleaned successfully.
+[2024-09-24 13:50:51][funcs] - INFO - Data cleaned successfully.
+[2024-09-24 13:51:04][funcs] - INFO - Connection to database was successful.
+[2024-09-24 13:51:04][funcs] - ERROR - connect() got an unexpected keyword argument 'trusted_connection': Failed to save data to database.
+[2024-09-24 13:51:46][funcs] - INFO - Connection to database was successful.
+[2024-09-24 13:51:46][funcs] - ERROR - connect() got an unexpected keyword argument 'trusted_connection': Failed to save data to database.
+[2024-09-24 14:15:16][funcs] - INFO - A scraper object was instantiated with URL: {'https://ereklamblad.se/Coop/erbjudanden'}
+[2024-09-24 14:15:18][funcs] - INFO - WebDriver set up successfully.
+[2024-09-24 14:15:18][funcs] - INFO - Page successfully loaded.
+[2024-09-24 14:15:39][funcs] - INFO - The content of the page was successfully gathered.
+[2024-09-24 14:15:40][funcs] - INFO - The OfferList class was successfully parsed.
+[2024-09-24 14:15:42][funcs] - INFO - Data saved to {'offers_2024-09-24.csv'}

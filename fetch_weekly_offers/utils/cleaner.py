@@ -1,7 +1,7 @@
 """Module providing a DataCleaner with functionality to clean and structure data gathered by the scraper."""
 
 import pandas as pd
-from funcs import set_up_logging, logger
+from fetch_weekly_offers.utils.funcs import set_up_logging, logger
 
 # Set up logging 
 set_up_logging()

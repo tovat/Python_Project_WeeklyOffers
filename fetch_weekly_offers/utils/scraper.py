@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import os
 from datetime import datetime
-from funcs import set_up_logging, logger
+from fetch_weekly_offers.utils.funcs import set_up_logging, logger
 
 # Set up logging
 set_up_logging()
@@ -20,7 +20,7 @@ class Scraper:
     
     def __init__(self, url):
         self.url = url
-        self.data = []
+        self.data = [] 
         self.driver = None
         logger.info('A scraper object was instantiated with URL: %s', {url})
 
@@ -67,6 +67,7 @@ class Scraper:
             self.set_up_driver()  
         if self.driver is not None:
             self.driver.get(self.url)
+            time.sleep(0.5)
             logger.info('Page successfully loaded.')
         else:
             logger.error('Driver setup failed, cannot load page.')
