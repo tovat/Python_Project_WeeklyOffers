@@ -7,14 +7,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import os
-import logging
 from datetime import datetime
-from funcs import set_up_logging
+from funcs import set_up_logging, logger
 
 # Set up logging
 set_up_logging()
-logger = logging.getLogger(__name__)
-
 
 class Scraper:
     """This class provides functionality to scrape the website 'ereklamblad.se' 
@@ -25,56 +22,54 @@ class Scraper:
         self.url = url
         self.data = []
         self.driver = None
-        logger.info("A scraper object was instantiated with URL: %s", {url})
+        logger.info('A scraper object was instantiated with URL: %s', {url})
 
     def set_up_driver(self):
         """This method sets up the Selenium WebDriver for automating browser interaction."""
         try:
-            driver_path = "chromedriver.exe"
+            driver_path = 'chromedriver.exe'
             
             # Creating a temp directory to ensure Chrome uses a clean user profile for every run
-            temp_user_data_dir = os.path.join(os.getcwd(), "temp_chrome_user_data")
+            temp_user_data_dir = os.path.join(os.getcwd(), 'temp_chrome_user_data')
 
             # Initializing Options in order to customize how Chrome behaves with the new user profile
             chrome_options = Options()
 
             # Pointing Chrome to the new temp directory
-            chrome_options.add_argument(f"--user-data-dir={temp_user_data_dir}")
+            chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
 
             # Experimenting with different options, the following arguments ensured the Scraper runs smoothly (i.e block pop-up windows)
-            chrome_options.add_argument("--no-first-run")
-            chrome_options.add_argument("--no-default-browser-check")
-            chrome_options.add_argument("--disable-default-apps")
-            chrome_options.add_argument("--disable-extensions")
-            chrome_options.add_argument("--disable-popup-blocking")
-            chrome_options.add_argument("--disable-infobars")
-            chrome_options.add_argument("--disable-features=EnableEphemeralFlashPermission")
-            chrome_options.add_argument("--disable-background-networking")
-            chrome_options.add_argument("--disable-sync")
-            chrome_options.add_argument("--disable-translate")
-            chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+            chrome_options.add_argument('--no-first-run')
+            chrome_options.add_argument('--no-default-browser-check')
+            chrome_options.add_argument('--disable-default-apps')
+            chrome_options.add_argument('--disable-extensions')
+            chrome_options.add_argument('--disable-popup-blocking')
+            chrome_options.add_argument('--disable-infobars')
+            chrome_options.add_argument('--disable-features=EnableEphemeralFlashPermission')
+            chrome_options.add_argument('--disable-background-networking')
+            chrome_options.add_argument('--disable-sync')
+            chrome_options.add_argument('--disable-translate')
+            chrome_options.add_argument('--disable-blink-features=AutomationControlled')
 
-            # Initializing the driver
+            # Instantiating the driver
             service = Service(executable_path=driver_path)
             self.driver = webdriver.Chrome(service=service, options=chrome_options)
-            logger.info("WebDriver set up successfully.")
+            logger.info('WebDriver set up successfully.')
             
         except Exception as e:
-            logger.error("An error occurred while setting up the driver: %s", e)
+            logger.error('An error occurred while setting up the driver: %s', e)
             self.driver = None
         
     def load_page(self):
         """This method loads the requested URL."""
         if self.driver is None:
-            logger.debug("Driver not initialized.")
-            self.set_up_driver()
-            
+            logger.debug('Driver not instantiated.')
+            self.set_up_driver()  
         if self.driver is not None:
             self.driver.get(self.url)
-            #time.sleep(2)
-            logger.info("Page successfully loaded.")
+            logger.info('Page successfully loaded.')
         else:
-            logger.error("Driver setup failed, cannot load page.")
+            logger.error('Driver setup failed, cannot load page.')
             
     def scroll_to_bottom(self):
         """This method scrolls to the bottom of the page to ensure all offers are loaded. 
@@ -82,31 +77,34 @@ class Scraper:
         """
         if self.driver is not None:
             try: 
-                SCROLL_PAUSE_TIME = 2 
-                last_height = self.driver.execute_script("return document.body.scrollHeight")
+                # Get scroll height
+                last_height = self.driver.execute_script('return document.body.scrollHeight')
         
                 while True:
-                    self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                    time.sleep(SCROLL_PAUSE_TIME)
-                    new_height = self.driver.execute_script("return document.body.scrollHeight")
+                    # Scroll down to bottom
+                    self.driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
+                    # Wait for the page to load
+                    time.sleep(2)
+                    # Calculate new scroll height and compare with last scroll height
+                    new_height = self.driver.execute_script('return document.body.scrollHeight')
                     if new_height == last_height:
                         break
                     last_height = new_height
             
                 self.full_content = self.driver.page_source
                 self.driver.quit()
-                logger.info("The content of the page was successfully gathered.")
+                logger.info('The full content of the page was successfully gathered.')
             except Exception as e:
-                logger.error("%s: An error occured while gathering the page content.", e)
+                logger.error('%s: An error occured while gathering the page content.', e)
         
     def find_elements(self):
-        """This method creates a BeautifulSoup object and parses the HTML-data."""
+        """This method creates a BeautifulSoup object that parses the HTML-data."""
         if self.full_content is not None:
             self.soup = BeautifulSoup(self.full_content, 'html.parser')
             self.offers = self.soup.find_all('li', class_='OfferList__OfferListItem-sc-bj82vg-1')
-            logger.info("The OfferList class was successfully parsed.")
+            logger.info('The OfferList class was successfully parsed.')
         if not self.offers:
-            logger.error("The OfferList could not be found.")
+            logger.error('The OfferList could not be found.')
     
     def extract_data(self):
         """This method extracts relevant data from the offers and appends them to the data attribute."""
@@ -131,11 +129,11 @@ class Scraper:
                         'ValidUntil': valid_until
                     })
                 except AttributeError as e:
-                    logger.error("An error occured while extracting data from an offer: %s", e)  
-            print(f"Number of offers found: {len(self.offers)}") 
+                    logger.error('An error occured while extracting data from an offer: %s', e)  
+            print(f'Number of offers found: {len(self.offers)}') 
             return self.data  
         else:
-            logger.error("An error occured while trying to extract the data. No offers found.")
+            logger.error('An error occured while trying to extract the data. No offers found.')
                 
     def save_to_csv(self):
         """This method saves the extracted data to a CSV-file. Optional for manual handling of data."""
@@ -145,11 +143,13 @@ class Scraper:
             df = pd.DataFrame(self.data)
             df.to_csv(filename, index=False)
             logger.info('Data saved to %s', {filename})
-            print(f"Data saved to {filename}")
+            print(f'Data saved to {filename}')
         else:
-            print("There is no data to be saved.")
+            print('There is no data to be saved.')
         
     def scrape(self):
+        """Run all scraping steps."""
+        self.set_up_driver()
         self.load_page()
         self.scroll_to_bottom()
         self.find_elements()
