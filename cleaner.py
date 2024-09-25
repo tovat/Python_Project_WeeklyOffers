@@ -54,8 +54,10 @@ class DataCleaner:
         if self.df is not None:
             try:
                 self.df['Price'] = self.df['Price'].astype(str)
-                self.df['Price'] = self.df['Price'].str.replace('kr', '')
+                # Remove all types of white spaces
+                self.df['Price'] = self.df['Price'].str.replace(r'\s+', '', regex=True)
                 self.df['Price'] = self.df['Price'].str.replace(',', '.')
+                self.df['Price'] = self.df['Price'].str.replace('kr', '')
                 self.df['Price'] = self.df['Price'].astype(float)
                 logger.info('Price column cleaned and converted to numeric successfully.')
                 return self.df
