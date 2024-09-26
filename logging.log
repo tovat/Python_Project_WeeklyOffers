@@ -1,0 +1,48 @@
+[2024-09-26 16:05:47][root] - INFO - Processing URL: https://ereklamblad.se/ICA-Maxi-Stormarknad/erbjudanden
+[2024-09-26 16:05:47][root] - INFO - A scraper object was instantiated with URL: {'https://ereklamblad.se/ICA-Maxi-Stormarknad/erbjudanden'}
+[2024-09-26 16:05:49][root] - INFO - WebDriver set up successfully.
+[2024-09-26 16:05:50][root] - INFO - Page successfully loaded.
+[2024-09-26 16:06:32][root] - INFO - The full content of the page was successfully gathered.
+[2024-09-26 16:06:32][root] - INFO - The OfferList class was successfully parsed.
+[2024-09-26 16:06:32][root] - INFO - Scraping was successful for URL: https://ereklamblad.se/ICA-Maxi-Stormarknad/erbjudanden. Proceeding to data cleaning.
+[2024-09-26 16:06:32][root] - INFO - DataCleaner instantiated with 224 rows of data.
+[2024-09-26 16:06:32][root] - INFO - Data successfully converted to a pandas DataFrame.
+[2024-09-26 16:06:32][root] - INFO - Duplicates removed, 48 rows were dropped.
+[2024-09-26 16:06:32][root] - INFO - Price column cleaned and converted to numeric successfully.
+[2024-09-26 16:06:32][root] - INFO - Details column modified and cleaned successfully.
+[2024-09-26 16:06:32][root] - INFO - Date columns converted and cleaned successfully.
+[2024-09-26 16:06:32][root] - INFO - Data cleaned successfully.
+[2024-09-26 16:06:32][root] - INFO - Data cleaning completed for URL: https://ereklamblad.se/ICA-Maxi-Stormarknad/erbjudanden. Proceeding to save data to SQL database.
+[2024-09-26 16:06:32][root] - INFO - Processing URL: https://ereklamblad.se/Hemkop/erbjudanden
+[2024-09-26 16:06:32][root] - INFO - A scraper object was instantiated with URL: {'https://ereklamblad.se/Hemkop/erbjudanden'}
+[2024-09-26 16:06:37][root] - INFO - WebDriver set up successfully.
+[2024-09-26 16:06:39][root] - INFO - Page successfully loaded.
+[2024-09-26 16:06:55][root] - INFO - The full content of the page was successfully gathered.
+[2024-09-26 16:06:55][root] - INFO - The OfferList class was successfully parsed.
+[2024-09-26 16:06:55][root] - INFO - Scraping was successful for URL: https://ereklamblad.se/Hemkop/erbjudanden. Proceeding to data cleaning.
+[2024-09-26 16:06:55][root] - INFO - DataCleaner instantiated with 73 rows of data.
+[2024-09-26 16:06:55][root] - INFO - Data successfully converted to a pandas DataFrame.
+[2024-09-26 16:06:55][root] - INFO - Duplicates removed, 9 rows were dropped.
+[2024-09-26 16:06:55][root] - INFO - Price column cleaned and converted to numeric successfully.
+[2024-09-26 16:06:55][root] - INFO - Details column modified and cleaned successfully.
+[2024-09-26 16:06:55][root] - INFO - Date columns converted and cleaned successfully.
+[2024-09-26 16:06:55][root] - INFO - Data cleaned successfully.
+[2024-09-26 16:06:55][root] - INFO - Data cleaning completed for URL: https://ereklamblad.se/Hemkop/erbjudanden. Proceeding to save data to SQL database.
+[2024-09-26 16:06:55][root] - INFO - Processing URL: https://ereklamblad.se/ICA-Supermarket/erbjudanden
+[2024-09-26 16:06:55][root] - INFO - A scraper object was instantiated with URL: {'https://ereklamblad.se/ICA-Supermarket/erbjudanden'}
+[2024-09-26 16:07:00][root] - INFO - WebDriver set up successfully.
+[2024-09-26 16:07:02][root] - INFO - Page successfully loaded.
+[2024-09-26 16:07:23][root] - INFO - The full content of the page was successfully gathered.
+[2024-09-26 16:07:23][root] - INFO - The OfferList class was successfully parsed.
+[2024-09-26 16:07:23][root] - INFO - Scraping was successful for URL: https://ereklamblad.se/ICA-Supermarket/erbjudanden. Proceeding to data cleaning.
+[2024-09-26 16:07:23][root] - INFO - DataCleaner instantiated with 97 rows of data.
+[2024-09-26 16:07:23][root] - INFO - Data successfully converted to a pandas DataFrame.
+[2024-09-26 16:07:23][root] - INFO - Duplicates removed, 8 rows were dropped.
+[2024-09-26 16:07:23][root] - INFO - Price column cleaned and converted to numeric successfully.
+[2024-09-26 16:07:23][root] - INFO - Details column modified and cleaned successfully.
+[2024-09-26 16:07:23][root] - INFO - Date columns converted and cleaned successfully.
+[2024-09-26 16:07:23][root] - INFO - Data cleaned successfully.
+[2024-09-26 16:07:23][root] - INFO - Data cleaning completed for URL: https://ereklamblad.se/ICA-Supermarket/erbjudanden. Proceeding to save data to SQL database.
+[2024-09-26 16:07:23][root] - INFO - Saving combined data to SQL database.
+[2024-09-26 16:07:23][root] - INFO - Connection to database was successful.
+[2024-09-26 16:07:25][root] - INFO - Data saved to WeeklyOffers in offers successfully.
