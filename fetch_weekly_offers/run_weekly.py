@@ -1,4 +1,4 @@
-"""Main script that will run automatically every Sunday kl. 10:00 through Windows task manager."""
+"""Main script that will run automatically every Sunday kl. 10:00 through Windows Task Scheduler."""
 
 from fetch_weekly_offers.utils.scraper import Scraper
 from fetch_weekly_offers.utils.cleaner import DataCleaner
