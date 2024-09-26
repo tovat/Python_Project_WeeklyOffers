@@ -1,4 +1,4 @@
-"""Main script that will run automatically every Sunday kl. 00.01 through Windows task manager."""
+"""Main script that will run automatically every Sunday kl. 10:00 through Windows task manager."""
 
 from fetch_weekly_offers.utils.scraper import Scraper
 from fetch_weekly_offers.utils.cleaner import DataCleaner
@@ -42,10 +42,10 @@ if __name__ == '__main__':
             logger.error('An error occured. No data scraped for URL: %s.', url)
     
     if all_scraped_data:
-        # Combine all cleaned data into a single DataFrame
+        # Combine all cleaned data 
         combined_data = pd.concat(all_scraped_data, ignore_index=True)
         
-        # Save combined data to SQL
+        # Save data to SQL db
         logger.info('Saving combined data to SQL database.')
         save_to_sql(combined_data)
     else:

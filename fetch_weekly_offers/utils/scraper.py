@@ -1,4 +1,4 @@
-"""Module providing a DataScraper with functionality to scrape the website 'ereklamblad.se' for weekly offers from requested urls."""
+"""Module providing a Scraper with functionality to scrape the website 'ereklamblad.se' for weekly offers from requested urls."""
 
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -8,14 +8,14 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import os
 from datetime import datetime
-from fetch_weekly_offers.utils.funcs import set_up_logging, logger
+from .funcs import set_up_logging, logger
 
 # Set up logging
 set_up_logging()
 
 class Scraper:
     """This class provides functionality to scrape the website 'ereklamblad.se' 
-    for weekly offers from grocery stores in Malmö and save it to a CSV file.
+    for weekly offers from grocery stores and save it to a CSV file.
     """
     
     def __init__(self, url):
@@ -27,7 +27,8 @@ class Scraper:
     def set_up_driver(self):
         """This method sets up the Selenium WebDriver for automating browser interaction."""
         try:
-            driver_path = 'chromedriver.exe'
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            driver_path = os.path.join(current_dir, 'chromedriver.exe')
             
             # Creating a temp directory to ensure Chrome uses a clean user profile for every run
             temp_user_data_dir = os.path.join(os.getcwd(), 'temp_chrome_user_data')

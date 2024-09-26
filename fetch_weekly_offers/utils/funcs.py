@@ -4,7 +4,6 @@ import logging
 import pandas as pd
 from sqlalchemy import create_engine
 
-
 # Function to configure logging 
 def set_up_logging():
     logging.basicConfig(filename='logging.log', 
@@ -13,8 +12,7 @@ def set_up_logging():
                         format='[%(asctime)s][%(name)s] - %(levelname)s - %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
     
-logger = logging.getLogger(__name__)
-
+logger = logging.getLogger()
 
 # Function to save scraped and cleaned data to SQL database "WeeklyOffers"
 def save_to_sql(df: pd.DataFrame, db_name='WeeklyOffers', table_name='offers', server='MSI') -> None:
