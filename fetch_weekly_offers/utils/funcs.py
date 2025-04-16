@@ -18,7 +18,7 @@ logger = logging.getLogger()
 def save_to_sql(df: pd.DataFrame, db_name='WeeklyOffers', table_name='offers', server='MSI') -> None:
     """Saves the cleaned DataFrame to a MSSQL database."""
     try:
-        engine = create_engine('mssql+pyodbc://MSI/WeeklyOffers?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes')
+        engine = create_engine(XXX)
         logger.info('Connection to database was successful.')
     except Exception as e: 
         logger.critical('Critical: %s. Could not connect to database.', e)
